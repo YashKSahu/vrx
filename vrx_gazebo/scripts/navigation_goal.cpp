@@ -18,28 +18,32 @@ int main(int argc, char** argv)
 
     move_base_msgs::MoveBaseGoal goal;
 
-    // Send goal pose
-    goal.target_pose.header.frame_id = "wamv/odom";
-    goal.target_pose.header.stamp = ros::Time::now();
+    int waypoints[5][2] = {{-480,180}, {-495,200}, {-460,200}, {-474,231}, {-446,226}};
 
-    // Do NOT modify the following for final submission.
-    goal.target_pose.pose.position.x = -400;
-    goal.target_pose.pose.position.y = 150;
+    for(int i=0; i<5; ++i){
+        // Send goal pose
+        goal.target_pose.header.frame_id = "wamv/odom";
+        goal.target_pose.header.stamp = ros::Time::now();
 
-    goal.target_pose.pose.orientation.x = 0.0;
-    goal.target_pose.pose.orientation.y = 0.0;
-    goal.target_pose.pose.orientation.z = 0.0;
-    goal.target_pose.pose.orientation.w = 1.0;
+        // Do NOT modify the following for final submission.
+        goal.target_pose.pose.position.x = waypoints[i][0];
+        goal.target_pose.pose.position.y = waypoints[i][1];
 
-    ROS_INFO("Sending goal");
-    ac.sendGoal(goal);
+        goal.target_pose.pose.orientation.x = 0.0;
+        goal.target_pose.pose.orientation.y = 0.0;
+        goal.target_pose.pose.orientation.z = 0.0;
+        goal.target_pose.pose.orientation.w = 0.0;
 
-    ac.waitForResult();
+        ROS_INFO("Sending goal");
+        ac.sendGoal(goal);
 
-    if (ac.getState() == actionlib::SimpleClientGoalState::SUCCEEDED)
-        ROS_INFO("Excellent! Your robot has reached the goal position.");
-    else
-        ROS_INFO("The robot failed to reach the goal position");
+        ac.waitForResult();
+
+        if (ac.getState() == actionlib::SimpleClientGoalState::SUCCEEDED)
+            ROS_INFO("Excellent! Your robot has reached the goal position.");
+        else
+            ROS_INFO("The robot failed to reach the goal position");
+    }
 
     return 0;
 }
