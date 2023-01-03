@@ -65,7 +65,7 @@ rosrun vrx_gazebo navigation_goal.cpp
 ```
 ![](images/lawn.jpeg)
 
-- currently stuck on this error due to low cpu power 
+- currently stuck at rotate recovery.
 ```bash
 Map update loop missed its desired rate of 4.0000Hz... the loop actually took 1.4040 seconds.
 Aborting because a valid plan could not be found. Even after executing all recovery behaviors
@@ -101,6 +101,7 @@ If you use the VRX simulation in your work, please cite our summary publication,
 - https://robonation.org/app/uploads/sites/2/2021/11/VRX2022_Technical-Guide_v1.1.pdf
 - vrx wiki
 - https://github.com/YashKSahu/Localization-and-Mapping-in-ROS/blob/main/yobot/src/navigation_goal.cpp
+- http://wiki.ros.org/navigation/Tutorials/SendingSimpleGoals
 
 ## Contributing
 This project is under active development to support the VRX and RobotX teams. We are adding and improving things all the time. Our primary focus is to provide the fundamental aspects of the robot and environment, but we rely on the community to develop additional functionality around their particular use cases.
