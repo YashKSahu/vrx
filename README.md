@@ -61,6 +61,7 @@ https://user-images.githubusercontent.com/66440615/210404657-53dafc8c-5722-41f0-
 ```bash
 rosrun vrx_gazebo navigation_goal.cpp
 ```
+![](images/lawn.jpeg)
 
 - currently stuck on this error due to low cpu power 
 ```bash
