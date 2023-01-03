@@ -55,30 +55,19 @@ roslaunch vrx_gazebo move_base.launch
 ```
 6. Give a 2d navigation goal from rviz
 
-
-
-
 https://user-images.githubusercontent.com/66440615/210404657-53dafc8c-5722-41f0-9815-c30e0c1113bd.mp4
-
-
-
 
 7. Lawn Mower Navigation Script
 ```bash
 rosrun vrx_gazebo navigation_goal.cpp
 ```
+
 - currently stuck on this error due to low cpu power 
 ```bash
 Map update loop missed its desired rate of 4.0000Hz... the loop actually took 1.4040 seconds.
 Aborting because a valid plan could not be found. Even after executing all recovery behaviors
 ```
 ---
-
-## The VRX Competition
-The VRX environment is also the "virtual venue" for the [VRX Competition](https://github.com/osrf/vrx/wiki). Please see our Wiki for tutorials and links to registration and documentation relevant to the virtual competition. 
-
-![VRX](images/sydney_regatta.png)
-![Ubuntu CI](https://github.com/osrf/vrx/workflows/Ubuntu%20CI/badge.svg)
 
 ## Reference
 
