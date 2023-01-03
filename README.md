@@ -4,6 +4,40 @@ This repository is the home to the source code and software documentation for th
 * For RobotX competitors this simulation environment is intended as a first step toward developing tools prototyping solutions in advance of physical on-water testing.
 * We also welcome users with simulation needs beyond RobotX. As we continue to improve the environment, we hope to offer support to a wide range of potential applications.
 
+---
+
+## Obstacle Avoidance and Navigation using move_base
+1. Create workspace and setup repo
+```bash
+mkdir -p ~/vrx_ws/src
+cd ~/vrx_ws/src
+git clone https://github.com/YashKSahu/vrx
+source /opt/ros/noetic/setup.bash
+```
+2. Compile and Run
+```bash
+cd ~/vrx_ws
+catkin_make
+source  ~/vrx_ws/devel/setup.bash
+roslaunch vrx_gazebo vrx.launch
+```
+3. Thrusht to Twist
+```bash
+roslaunch vrx_gazebo usb_keydrive.launch
+```
+4. move_base Obstacle Avoidance
+```bash
+roslaunch vrx_gazebo move_base.launch
+```
+5. Give a 2d navigation goal from rviz
+
+6. Lawn Mower Navigation Script
+```bash
+rosrun vrx_gazebo navigation_goal.cpp
+```
+
+---
+
 ## The VRX Competition
 The VRX environment is also the "virtual venue" for the [VRX Competition](https://github.com/osrf/vrx/wiki). Please see our Wiki for tutorials and links to registration and documentation relevant to the virtual competition. 
 
