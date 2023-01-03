@@ -24,7 +24,7 @@ source  ~/vrx_ws/devel/setup.bash
 roslaunch vrx_gazebo vrx.launch
 ```
 3. Bringup
--This launch file containes the basic nodes for the USV.
+- This launch file containes the basic nodes for the USV.
   - robot state publisher
   - joint state publisher
   - tf
