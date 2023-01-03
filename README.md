@@ -61,7 +61,8 @@ rosrun vrx_gazebo navigation_goal.cpp
 ```
 - currently stuck on this error due to low cpu power 
 ```bash
-
+Map update loop missed its desired rate of 4.0000Hz... the loop actually took 1.4040 seconds.
+Aborting because a valid plan could not be found. Even after executing all recovery behaviors
 ```
 ---
 
