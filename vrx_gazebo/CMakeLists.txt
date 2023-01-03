@@ -39,6 +39,9 @@ find_package(catkin REQUIRED COMPONENTS
   wamv_gazebo
   wave_gazebo
   xacro
+  actionlib
+  move_base_msgs
+  geometry_msgs
 )
 
 ########################
@@ -63,6 +66,8 @@ catkin_python_setup()
 generate_messages(
   DEPENDENCIES
   std_msgs
+  geometry_msgs
+  move_base_msgs
 )
 
 catkin_package(
@@ -411,3 +416,7 @@ catkin_install_python(PROGRAMS
     scripts/generate_worlds.py
     scripts/generate_wamv.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+
+
+add_executable(navigation_goal scripts/navigation_goal.cpp)
+target_link_libraries(navigation_goal ${catkin_LIBRARIES})
