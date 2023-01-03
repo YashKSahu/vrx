@@ -16,6 +16,7 @@ int main(int argc, char** argv)
 
     ROS_INFO("Connected to move_base server");
 
+    //  create a goal to send to move_base
     move_base_msgs::MoveBaseGoal goal;
 
     int waypoints[5][2] = {{-480,180}, {-495,200}, {-460,200}, {-474,231}, {-446,226}};
