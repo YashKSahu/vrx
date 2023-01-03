@@ -5,6 +5,8 @@ This repository is the home to the source code and software documentation for th
 * We also welcome users with simulation needs beyond RobotX. As we continue to improve the environment, we hope to offer support to a wide range of potential applications.
 
 ---
+## Introduction
+Research for autonomous navigation in the field of wheeled mobile robotics dates back to 1950’s and has grown quite strong in the past decade with advancement of computation power, availability of low-cost sensors and most importantly the large open-source community, whereas research in maritime robotics is younger comparatively mostly because of the challenges and large number of parameters to deal with when interacting with water. In this report I demonstrate autonomous navigation using a USV in an unknown (no pre-built map) water lake simulated environment. This small project is for the final selection round for a remote internship at the Autonomous Engineers Private Limited (AEPL), India.
 
 ## Obstacle Avoidance and Navigation using move_base
 1. Create workspace and setup repo
@@ -21,21 +23,46 @@ catkin_make
 source  ~/vrx_ws/devel/setup.bash
 roslaunch vrx_gazebo vrx.launch
 ```
-3. Thrusht to Twist
+3. Bringup
+This launch file containes the basic nodes for the USV.
+  - robot state publisher
+  - joint state publisher
+  - tf
+  - localization
+  - odom filter node
+  - odom tf
+  - point cloud to laser scan
+```bash
+roslaunch vrx_gazebo bringup.launch
+```
+6. Thrusht to Twist
+Most ROS packages are written w.r.t wheeled robots, and hence the parameters are also in accordance to it. A USV doesnt have wheels but thrusters instead to push it in water current. VRX has provided a thrust2twist node to convert thrust commands to equivalent geometry twist commands.
 ```bash
 roslaunch vrx_gazebo usb_keydrive.launch
 ```
-4. move_base Obstacle Avoidance
+5. move_base Obstacle Avoidance
+I found three different ways of performing autonomous navigation
+  - With a pre-built known map
+    - gmapping for building map and then amcl and move_base to navigate
+  - Building and saving map simulataneously while autonomously navigating and exploring envrionment
+    - slam and move_base to map and navigate simultaneously 
+    - or RTAB Map and move_base
+  - Without a known map, mapless navigation
+    - just pure move_base navigation, obstacles are avoided on exploration but map and obstacle information is lost globally
+
 ```bash
 roslaunch vrx_gazebo move_base.launch
 ```
-5. Give a 2d navigation goal from rviz
+6. Give a 2d navigation goal from rviz
 
-6. Lawn Mower Navigation Script
+7. Lawn Mower Navigation Script
 ```bash
 rosrun vrx_gazebo navigation_goal.cpp
 ```
+currently stuck on this error due to low cpu power 
+```bash
 
+```
 ---
 
 ## The VRX Competition
@@ -58,6 +85,21 @@ If you use the VRX simulation in your work, please cite our summary publication,
   Month                    = {October}
 }
 ```
+- https://github.com/disaster-robotics-proalertas/usv_sim_lsa
+- https://www.leorover.tech/guides/autonomous-navigation
+- http://wiki.ros.org/navigation/Tutorials/RobotSetup
+- https://git.scc.kit.edu/ugdrv/husky/-/tree/hokuyo
+- https://github.com/Tinker-Twins/Husky
+- https://geo-matching.com/usvs-unmanned-surface-vehicles/wam-v-16-asv
+- http://wiki.ros.org/move_base
+- https://answers.ros.org/question/351267/advice-for-slam-with-3d-lidar/
+- http://wiki.ros.org/gmapping
+- https://answers.ros.org/question/195523/warning-map-update-loop-missed-its-desired-rate-keeps-on-comming/
+- http://wiki.ros.org/husky_navigation/Tutorials/Husky%20Move%20Base%20Demo
+- https://www.youtube.com/watch?v=3sVrWRfWrEY
+- https://robonation.org/app/uploads/sites/2/2021/11/VRX2022_Technical-Guide_v1.1.pdf
+- vrx wiki
+- https://github.com/YashKSahu/Localization-and-Mapping-in-ROS/blob/main/yobot/src/navigation_goal.cpp
 
 ## Contributing
 This project is under active development to support the VRX and RobotX teams. We are adding and improving things all the time. Our primary focus is to provide the fundamental aspects of the robot and environment, but we rely on the community to develop additional functionality around their particular use cases.
