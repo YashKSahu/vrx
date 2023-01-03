@@ -1,0 +1,34 @@
+<launch>
+    <!-- Sending robot urdf to ROS parameter server -->
+    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find wamv_gazebo)/urdf/wamv_gazebo.urdf.xacro'" />
+
+    <!-- Publishes static joint transforms (lidar, cameras, etc) to /tf -->
+    <node ns="wamv" pkg="robot_state_publisher" type="robot_state_publisher" name="rob_st_pub"/>
+
+    <!-- Publishes revolute joint static transforms (gps and imu) to /tf -->
+    <node ns="wamv" pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher">
+        <param name="gui" value="false" />
+    </node>
+
+    <!-- pc2l -->
+    <node pkg="pointcloud_to_laserscan" type="pointcloud_to_laserscan_node" name="pointcloud_to_laserscan">
+        <rosparam>
+        target_frame: wamv/base_link
+        transform_tolerance: 0.01
+        min_height: 0.0
+        max_height: 1.0
+
+        angle_min: -1.5708
+        angle_max: 1.5708
+        angle_increment: 0.0087
+        range_min: 0.45
+        range_max: 400.0
+        use_inf: true
+        concurrency_level: 1
+        </rosparam>
+        <remap from="cloud_in" to="/wamv/sensors/lidars/lidar_wamv/points" />
+        <remap from="scan" to="laser_scan" />
+    </node>
+
+
+</launch>
