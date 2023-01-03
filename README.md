@@ -35,7 +35,7 @@ roslaunch vrx_gazebo vrx.launch
 ```bash
 roslaunch vrx_gazebo bringup.launch
 ```
-6. Thrust to Twist
+4. Thrust to Twist
 - Most ROS packages are written w.r.t wheeled robots, and hence the parameters are also in accordance to it. A USV doesnt have wheels but thrusters instead to push it in water current. VRX has provided a thrust2twist node to convert thrust commands to equivalent geometry twist commands.
 ```bash
 roslaunch vrx_gazebo usb_keydrive.launch
@@ -54,6 +54,14 @@ roslaunch vrx_gazebo usb_keydrive.launch
 roslaunch vrx_gazebo move_base.launch
 ```
 6. Give a 2d navigation goal from rviz
+
+
+
+
+https://user-images.githubusercontent.com/66440615/210404657-53dafc8c-5722-41f0-9815-c30e0c1113bd.mp4
+
+
+
 
 7. Lawn Mower Navigation Script
 ```bash
