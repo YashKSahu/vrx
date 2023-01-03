@@ -24,7 +24,7 @@ source  ~/vrx_ws/devel/setup.bash
 roslaunch vrx_gazebo vrx.launch
 ```
 3. Bringup
-This launch file containes the basic nodes for the USV.
+-This launch file containes the basic nodes for the USV.
   - robot state publisher
   - joint state publisher
   - tf
@@ -36,12 +36,12 @@ This launch file containes the basic nodes for the USV.
 roslaunch vrx_gazebo bringup.launch
 ```
 6. Thrusht to Twist
-Most ROS packages are written w.r.t wheeled robots, and hence the parameters are also in accordance to it. A USV doesnt have wheels but thrusters instead to push it in water current. VRX has provided a thrust2twist node to convert thrust commands to equivalent geometry twist commands.
+- Most ROS packages are written w.r.t wheeled robots, and hence the parameters are also in accordance to it. A USV doesnt have wheels but thrusters instead to push it in water current. VRX has provided a thrust2twist node to convert thrust commands to equivalent geometry twist commands.
 ```bash
 roslaunch vrx_gazebo usb_keydrive.launch
 ```
 5. move_base Obstacle Avoidance
-I found three different ways of performing autonomous navigation
+- I found three different ways of performing autonomous navigation
   - With a pre-built known map
     - gmapping for building map and then amcl and move_base to navigate
   - Building and saving map simulataneously while autonomously navigating and exploring envrionment
@@ -59,7 +59,7 @@ roslaunch vrx_gazebo move_base.launch
 ```bash
 rosrun vrx_gazebo navigation_goal.cpp
 ```
-currently stuck on this error due to low cpu power 
+- currently stuck on this error due to low cpu power 
 ```bash
 
 ```
