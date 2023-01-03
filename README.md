@@ -35,7 +35,7 @@ roslaunch vrx_gazebo vrx.launch
 ```bash
 roslaunch vrx_gazebo bringup.launch
 ```
-6. Thrusht to Twist
+6. Thrust to Twist
 - Most ROS packages are written w.r.t wheeled robots, and hence the parameters are also in accordance to it. A USV doesnt have wheels but thrusters instead to push it in water current. VRX has provided a thrust2twist node to convert thrust commands to equivalent geometry twist commands.
 ```bash
 roslaunch vrx_gazebo usb_keydrive.launch
