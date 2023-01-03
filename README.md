@@ -58,7 +58,8 @@ roslaunch vrx_gazebo move_base.launch
 https://user-images.githubusercontent.com/66440615/210404657-53dafc8c-5722-41f0-9815-c30e0c1113bd.mp4
 
 7. Lawn Mower Navigation Script
-This script can work for both with and without obstacle cases, as only move_base is running in backround to send navigation goals to controllers.
+- This script can work for both with and without obstacle cases, as only move_base is running in backround to send navigation goals to controllers.
+- The script utilizes ROS action, move_base. It accepts goal from client as input and attempts to move the USV to the specified position/orientation in the world.
 ```bash
 rosrun vrx_gazebo navigation_goal.cpp
 ```
