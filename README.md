@@ -106,6 +106,7 @@ If you use the VRX simulation in your work, please cite our summary publication,
 - vrx wiki
 - https://github.com/YashKSahu/Localization-and-Mapping-in-ROS/blob/main/yobot/src/navigation_goal.cpp
 - http://wiki.ros.org/navigation/Tutorials/SendingSimpleGoals
+- http://wiki.ros.org/dwa_local_planner
 
 ## Contributing
 This project is under active development to support the VRX and RobotX teams. We are adding and improving things all the time. Our primary focus is to provide the fundamental aspects of the robot and environment, but we rely on the community to develop additional functionality around their particular use cases.
