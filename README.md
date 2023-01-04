@@ -51,6 +51,7 @@ roslaunch vrx_gazebo usb_keydrive.launch
     - just pure move_base navigation, obstacles are avoided on exploration but map and obstacle information is lost globally
  - Dynamic Window Approach (DWA), dwa_local_planner has been used.
   - Given a global plan to follow and a costmap, the local planner produces velocity commands to send to a mobile base.
+  - DWA generates control velocities to achieve a goal position by using the dynamic model of the robot to optimize the distance to obstacles, its velocity, and the heading towards the goal.
   - The basic idea of the Dynamic Window Approach (DWA) algorithm is as follows:
     1. Discretely sample in the robot's control space (dx,dy,dtheta)
     2. For each sampled velocity, perform forward simulation from the robot's current state to predict what would happen if the sampled velocity were applied for some (short) period of time.
