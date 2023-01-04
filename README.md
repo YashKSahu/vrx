@@ -50,8 +50,13 @@ roslaunch vrx_gazebo usb_keydrive.launch
   - Without a known map, mapless navigation
     - just pure move_base navigation, obstacles are avoided on exploration but map and obstacle information is lost globally
  - Dynamic Window Approach (DWA), dwa_local_planner has been used.
- `- Given a global plan to follow and a costmap, the local planner produces velocity commands to send to a mobile base.
-
+  - Given a global plan to follow and a costmap, the local planner produces velocity commands to send to a mobile base.
+  - The basic idea of the Dynamic Window Approach (DWA) algorithm is as follows:
+    1. Discretely sample in the robot's control space (dx,dy,dtheta)
+    2. For each sampled velocity, perform forward simulation from the robot's current state to predict what would happen if the sampled velocity were applied for some (short) period of time.
+    3. Evaluate (score) each trajectory resulting from the forward simulation, using a metric that incorporates characteristics such as: proximity to obstacles, proximity to the goal, proximity to the global path, and speed. Discard illegal trajectories (those that collide with obstacles).
+    4. Pick the highest-scoring trajectory and send the associated velocity to the mobile base.
+    5. Rinse and repeat. 
 ```bash
 roslaunch vrx_gazebo move_base.launch
 ```
