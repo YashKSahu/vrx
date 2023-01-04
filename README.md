@@ -49,6 +49,8 @@ roslaunch vrx_gazebo usb_keydrive.launch
     - or RTAB Map and move_base
   - Without a known map, mapless navigation
     - just pure move_base navigation, obstacles are avoided on exploration but map and obstacle information is lost globally
+ - Dynamic Window Approach (DWA), dwa_local_planner has been used.
+ `- Given a global plan to follow and a costmap, the local planner produces velocity commands to send to a mobile base.
 
 ```bash
 roslaunch vrx_gazebo move_base.launch
